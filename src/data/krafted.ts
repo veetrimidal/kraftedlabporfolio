@@ -1,30 +1,30 @@
 export const services = [
   {
-    name: 'Brand systems',
+    name: 'Brand identity',
     description:
-      'Find your position. Give your expertise a clear voice, a distinctive identity, and a foundation you can build on.',
-    items: 'Positioning · Messaging · Visual identity',
+      'Build a distinctive visual brand and clear positioning, with typography, cohesive design systems, and assets that make your expertise recognizable.',
+    items: 'Positioning · Visual identity · Brand assets',
     icon: '◈',
   },
   {
-    name: 'Content systems',
+    name: 'Funnel strategy',
     description:
-      'Turn what you know into content that builds authority, with a repeatable process behind every piece.',
-    items: 'Content strategy · Templates · Repurposing',
-    icon: '▤',
-  },
-  {
-    name: 'Websites & funnels',
-    description:
-      'Connect the first impression to the next step. Build a digital experience with an intentional customer journey.',
-    items: 'Websites · Landing pages · Client journeys',
+      'Give your offer a purposeful journey from first interest to inquiry, booking, or purchase, using clear messaging and thoughtful page design.',
+    items: 'Sales funnels · Conversion flow · Offer strategy',
     icon: '↗',
   },
   {
-    name: 'Automation & growth',
+    name: 'Website design',
     description:
-      'Connect your tools, follow-ups, and workflows so your business can move beyond disconnected execution.',
-    items: 'CRM · AI workflows · Operational systems',
+      'Build a focused digital experience that communicates your value, answers buying questions, and makes the next step easy.',
+    items: 'Website strategy · UI/UX · Responsive design',
+    icon: '▤',
+  },
+  {
+    name: 'Marketing automation',
+    description:
+      'Connect lead nurturing, auto-responders, CRM integrations, and follow-up workflows around your customer journey.',
+    items: 'CRM · Email sequences · Workflow automation',
     icon: '⌘',
   },
 ]

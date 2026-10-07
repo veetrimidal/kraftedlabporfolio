@@ -1,14 +1,29 @@
 import { useEffect, useState } from 'react'
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom'
 import { projects, services, method } from './data/krafted'
+import { brand, socialLinks, caseStudies } from './data/website'
+import {
+  ApplyButton,
+  ClientWork,
+  CaseStudyPage,
+  Timeline,
+  Testimonials,
+  FAQ,
+  Resources,
+  OfferLayers,
+  Guarantee,
+} from './WebsiteContent'
 
 const Arrow = () => <span aria-hidden="true">↗</span>
 const nav = [
   ['/', 'Overview', '◈'],
-  ['/projects', 'Inside the Lab', '▦'],
+  ['/projects', 'Selected work', '▦'],
   ['/services', 'Work with me', '↗'],
   ['/about', 'The story', '◉'],
   ['/method', 'The method', '⌘'],
+  ['/testimonials', 'Client stories', '❝'],
+  ['/resources', 'Learn & build', '↗'],
+  ['/lab', 'Inside the Lab', '✳'],
 ]
 function ProjectArt({ kind }: { kind: string }) {
   return (
@@ -94,7 +109,7 @@ function Projects({ compact = false }: { compact?: boolean }) {
           </h2>
         </div>
         {compact && (
-          <Link className="text-link" to="/projects">
+          <Link className="text-link" to="/lab">
             Explore the Lab <Arrow />
           </Link>
         )}
@@ -171,74 +186,99 @@ function Projects({ compact = false }: { compact?: boolean }) {
 function Home() {
   return (
     <>
-      <section className="hero">
+      <section className="hero live-hero">
         <div className="hero-copy">
           <p className="eyebrow">
-            <span className="status-dot" /> STRATEGIST. BUILDER. STILL LEARNING.
+            <span className="status-dot" /> BRAND × FUNNEL × GROWTH SYSTEMS
           </p>
           <h1>
-            Your expertise.
-            <br />A connected
+            We kraft profitable
             <br />
-            <em>world of possibilities.</em>
+            <em>brand systems</em>
+            <br />
+            for founders<span className="orange">.</span>
           </h1>
           <p className="lede">
-            I'm Vee. I help founders turn what they know into clear brands, meaningful content, and
-            systems built to work.
+            We'll turn your founder expertise into a brand, content, and funnel system krafted to
+            turn your influence into profit—in six weeks.
           </p>
           <div className="actions">
-            <Link to="/projects" className="button primary">
-              Step inside the Lab <Arrow />
-            </Link>
-            <Link to="/contact" className="text-link">
-              Let's build together <Arrow />
+            <ApplyButton label="Get KRAFTED" />
+            <Link className="text-link" to="/projects">
+              See the work <Arrow />
             </Link>
           </div>
+          <p className="hero-footnote">Your vision. Our kraft. One connected system.</p>
         </div>
-        <div className="hero-art">
-          <div className="art-top">
-            FIELD NOTES — 001 <span>↗</span>
-          </div>
-          <div className="orbit orbit-one" />
-          <div className="orbit orbit-two" />
-          <div className="orbit orbit-three" />
-          <span className="orbit-label label-brand">BRAND</span>
-          <span className="orbit-label label-content">CONTENT</span>
-          <span className="orbit-label label-systems">SYSTEMS</span>
-          <div className="art-center">
-            k<span>✳</span>
-          </div>
-          <div className="art-bottom">
-            GOOD THINGS
+        <div className="founder-hero">
+          <span className="founder-orbit" />
+          <span className="founder-label">
+            STRATEGIST.
             <br />
-            ARE BUILT <i>together.</i>
-            <span>© KRAFTED LAB</span>
+            BUILDER.
+            <br />
+            STILL LEARNING.
+          </span>
+          <img
+            src={brand.portrait}
+            alt="Vee Trimidal, founder of Krafted Lab"
+            fetchPriority="high"
+          />
+          <div className="founder-caption">
+            <div>
+              <strong>Hey, I'm Vee.</strong>
+              <span>The human behind the Lab.</span>
+            </div>
+            <Link to="/about" aria-label="Meet Vee">
+              ↗
+            </Link>
           </div>
+          <span className="founder-spark" aria-hidden="true">
+            ✳
+          </span>
         </div>
       </section>
       <div className="principle-strip">
-        <span>FOUNDER-LED. STRATEGY-FIRST.</span>
+        <span>THE B2PRO™ SYSTEM</span>
         <p>
-          Clarity <b>↗</b> Creativity <b>↗</b> Connected systems
+          Brand <b>↗</b> Content <b>↗</b> Funnel <b>↗</b> Growth
         </p>
         <span>YOUR VISION. OUR KRAFT!</span>
       </div>
       <section className="section">
-        <Projects compact />
+        <ClientWork compact />
+      </section>
+      <section className="section system-section">
+        <p className="eyebrow">THE COMPLETE SYSTEM</p>
+        <h2>
+          Here's what we can <span className="accent-word">kraft together.</span>
+        </h2>
+        <p className="section-intro">
+          Three connected layers, from first impression to the next conversation.
+        </p>
+        <OfferLayers />
+        <div className="actions">
+          <Link to="/services" className="button primary">
+            Explore the offer <Arrow />
+          </Link>
+        </div>
+      </section>
+      <section className="section">
+        <Timeline compact />
+      </section>
+      <section className="section">
+        <Testimonials compact />
       </section>
       <section className="manifesto">
-        <p className="eyebrow">THE THINKING BEHIND THE WORK</p>
+        <p className="eyebrow">YOU BUILT THE BUSINESS.</p>
         <h2>
-          Great brands aren't just designed.
-          <br />
-          They're <em>krafted.</em>
+          Now build <em>the systems.</em>
         </h2>
         <p>
-          Your brand, content, website, and workflows should work together. That's where I come in.
+          Give your expertise a clear brand, your offer a focused website, and your inquiries a
+          connected next step.
         </p>
-        <Link className="text-link" to="/method">
-          Discover the KRAFTED Method <Arrow />
-        </Link>
+        <ApplyButton label="Book your Brand-to-Profit call" />
       </section>
     </>
   )
@@ -246,16 +286,51 @@ function Home() {
 function Services() {
   return (
     <section className="page">
-      <p className="eyebrow">WORK WITH KRAFTED LAB</p>
+      <p className="eyebrow">THE B2PRO™ SYSTEM / BRAND TO PROFIT</p>
       <h1>
-        You bring the vision.
+        Your expertise.
         <br />
-        <em>We build the system.</em>
+        <em>A connected growth system.</em>
       </h1>
       <p className="lede">
-        We kraft profitable brand systems for founders. Strategy, creativity, and technology
-        connected around what your business needs next.
+        You have the vision, the expertise, and the offer. We connect the brand, content, website,
+        and follow-up around them—in a focused six-week build.
       </p>
+      <ApplyButton />
+      <OfferLayers />
+      <Timeline />
+      <Guarantee />
+      <section className="fit-section">
+        <div>
+          <p className="eyebrow">IS KRAFTED LAB RIGHT FOR YOU?</p>
+          <h2>
+            You've built the expertise.
+            <br />
+            Let's build what supports it.
+          </h2>
+          <p>
+            This is for founders with expertise and an offer who are ready to connect the systems
+            around them.
+          </p>
+        </div>
+        <ul>
+          {[
+            'Your brand no longer reflects the quality of your work.',
+            'People discover you but struggle to understand your offer.',
+            'Your website needs a clearer path to inquiry or booking.',
+            'You handle too much of the customer journey manually.',
+            'You want your brand, content, and funnel to work together.',
+          ].map((t) => (
+            <li key={t}>{t}</li>
+          ))}
+        </ul>
+      </section>
+      <div className="section-head">
+        <div>
+          <p className="eyebrow">INDIVIDUAL SERVICES</p>
+          <h2>The right pieces for your next chapter.</h2>
+        </div>
+      </div>
       <div className="service-grid">
         {services.map((s, i) => (
           <article className="service-card" key={s.name}>
@@ -272,9 +347,14 @@ function Services() {
           </article>
         ))}
       </div>
+      <FAQ />
       <div className="note">
-        <strong>Start with what needs to work.</strong>
-        <p>We’ll map the challenge, choose the right scope, and connect the pieces that matter.</p>
+        <h2>You bring the vision. We'll kraft the system.</h2>
+        <p>
+          Bring your business context and timely feedback. We'll guide the strategy, agree the
+          scope, and build the connected experience.
+        </p>
+        <ApplyButton />
       </div>
     </section>
   )
@@ -294,15 +374,18 @@ function About() {
       </p>
       <div className="story-grid">
         <div className="story-statement">
-          I started by selling
-          <br />
-          what I could <em>do.</em>
-          <br />
-          <br />
-          Now I'm building
-          <br />
-          around what I <em>know.</em>
-          <span>VEE TRIMIDAL / FOUNDER</span>
+          <img className="story-portrait" src={brand.portrait} alt="Vee Trimidal" loading="lazy" />
+          <div>
+            I started by selling
+            <br />
+            what I could <em>do.</em>
+            <br />
+            <br />
+            Now I'm building
+            <br />
+            around what I <em>know.</em>
+            <span>VEE TRIMIDAL / FOUNDER</span>
+          </div>
         </div>
         <div className="story-copy">
           <h2>
@@ -327,6 +410,28 @@ function About() {
           </p>
         </div>
       </div>
+      <section className="founder-origin">
+        <p className="eyebrow">WHY I STARTED KRAFTED LAB</p>
+        <h2>The pieces were there. The connection wasn't.</h2>
+        <p>
+          I watched talented founders get attention but lose momentum. Their content got views, but
+          inquiries were inconsistent. Their websites looked fine, but visitors still had questions
+          the site should have answered.
+        </p>
+        <p>
+          The problem wasn't effort or expertise. Brand, website, content, and follow-up were
+          working in isolation. That's why I built Krafted Lab around the B2PRO™ System: a six-week
+          process that connects the pieces around the founder, the offer, and the season of business
+          they're actually in.
+        </p>
+        <div className="social-links">
+          {socialLinks.map((l) => (
+            <a href={l.url} key={l.name}>
+              {l.name} ↗
+            </a>
+          ))}
+        </div>
+      </section>
       <div className="note">
         <p className="eyebrow">THE BELIEF THAT CONNECTS IT ALL</p>
         <h2>Your skill isn't your ceiling.</h2>
@@ -373,10 +478,10 @@ function Method() {
 }
 function Contact() {
   const { search } = useLocation()
-  const initial = new URLSearchParams(search).get('service') || 'Brand systems'
+  const initial = new URLSearchParams(search).get('service') || services[0].name
   const [copied, setCopied] = useState(false)
   const [brief, setBrief] = useState('')
-  const contact = import.meta.env.VITE_PUBLIC_CONTACT_URL as string | undefined
+  const contact = import.meta.env.VITE_PUBLIC_CONTACT_URL || brand.apply
   return (
     <section className="page contact-page">
       <p className="eyebrow">YOUR VISION. OUR KRAFT!</p>
@@ -389,6 +494,29 @@ function Contact() {
         Start with the idea, the challenge, or the pieces that aren't connecting yet. Let's put it
         into words.
       </p>
+      <div className="contact-options">
+        <a className="contact-option" href={brand.apply}>
+          <span>01 / LET'S TALK STRATEGY</span>
+          <h2>Book a Brand-to-Profit call ↗</h2>
+          <p>Discuss your offer, review your current setup, and find the gaps worth addressing.</p>
+        </a>
+        <a className="contact-option" href={`mailto:${brand.email}`}>
+          <span>02 / DROP A NOTE</span>
+          <h2>{brand.email} ↗</h2>
+          <p>Share your vision or ask about a custom project.</p>
+        </a>
+        <a className="contact-option" href={brand.whatsapp}>
+          <span>03 / SAY HELLO</span>
+          <h2>Chat on WhatsApp ↗</h2>
+          <p>+63 946 749 7070 · Philippines, GMT+8</p>
+        </a>
+      </div>
+      <div className="section-head">
+        <div>
+          <p className="eyebrow">A HEAD START FOR OUR CONVERSATION</p>
+          <h2>Put your idea into a project brief.</h2>
+        </div>
+      </div>
       <form
         className="brief-form"
         onSubmit={(e) => {
@@ -473,6 +601,12 @@ function Contact() {
           >
             Download brief ↓
           </a>
+          <a
+            className="button secondary"
+            href={`mailto:${brand.email}?subject=${encodeURIComponent('Let’s kraft my project')}&body=${encodeURIComponent(brief)}`}
+          >
+            Email this brief ↗
+          </a>
           {contact ? (
             <a className="text-link" href={contact}>
               Connect with Vee <Arrow />
@@ -491,7 +625,12 @@ export default function Portfolio() {
   useEffect(() => {
     window.scrollTo(0, 0)
     setMenu(false)
-    document.title = `${nav.find((n) => n[0] === location.pathname)?.[1] || 'Let’s build'} — Vee Trimidal · Krafted Lab`
+    const project = caseStudies.find((p) => location.pathname === `/case-studies/${p.id}`)
+    const pageTitle =
+      project?.name ||
+      nav.find((n) => n[0] === location.pathname)?.[1] ||
+      (location.pathname === '/contact' ? 'Let’s build' : 'Page not found')
+    document.title = `${pageTitle} — Vee Trimidal · Krafted Lab`
   }, [location.pathname])
   return (
     <>
@@ -500,14 +639,11 @@ export default function Portfolio() {
       </a>
       <aside className="sidebar">
         <Link to="/" className="wordmark" aria-label="Krafted Lab home">
-          krafted<span>✳</span>
-          <br />
-          lab<span className="wordmark-dot">.</span>
+          <img src={brand.mark} alt="" />
+          <img src={brand.logo} alt="Krafted Lab" />
         </Link>
         <div className="sidebar-profile">
-          <div className="monogram">
-            vt<span>↗</span>
-          </div>
+          <img className="profile-photo" src={brand.avatar} alt="Vee Trimidal" />
           <h2>Vee Trimidal</h2>
           <p>
             Personal Brand Strategist
@@ -556,7 +692,7 @@ export default function Portfolio() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route
-              path="/projects"
+              path="/lab"
               element={
                 <section className="page">
                   <p className="eyebrow">BUILDING IN PUBLIC</p>
@@ -573,6 +709,43 @@ export default function Portfolio() {
                 </section>
               }
             />
+            <Route
+              path="/projects"
+              element={
+                <section className="page">
+                  <p className="eyebrow">THE WORK / BRAND × FUNNEL × CONTENT</p>
+                  <h1>
+                    Real brands.
+                    <br />
+                    <em>Connected systems.</em>
+                  </h1>
+                  <p className="lede">
+                    Explore the strategy, design, and implementation behind the work. Eight case
+                    studies from the Krafted Lab portfolio.
+                  </p>
+                  <ClientWork />
+                </section>
+              }
+            />
+            <Route path="/case-studies/:id" element={<CaseStudyPage />} />
+            <Route
+              path="/testimonials"
+              element={
+                <section className="page">
+                  <p className="eyebrow">CLIENT STORIES</p>
+                  <h1>
+                    Krafted together.
+                    <br />
+                    <em>In their words.</em>
+                  </h1>
+                  <p className="lede">
+                    Feedback from the founders, clients, and collaborators behind the work.
+                  </p>
+                  <Testimonials />
+                </section>
+              }
+            />
+            <Route path="/resources" element={<Resources />} />
             <Route path="/services" element={<Services />} />
             <Route path="/about" element={<About />} />
             <Route path="/method" element={<Method />} />
@@ -595,6 +768,27 @@ export default function Portfolio() {
             />
           </Routes>
         </main>
+        <section className="site-footer">
+          <div>
+            <h2>
+              krafted<span>lab.</span>
+            </h2>
+            <p>We kraft profitable brand systems for founders.</p>
+            <span>Your Vision. Our Kraft!</span>
+          </div>
+          <div>
+            <h3>EXPLORE</h3>
+            <Link to="/projects">Selected work</Link>
+            <Link to="/services">B2PRO™ System</Link>
+            <Link to="/resources">Value Vault & Akademy</Link>
+          </div>
+          <div>
+            <h3>LET'S CONNECT</h3>
+            <a href={`mailto:${brand.email}`}>{brand.email}</a>
+            <a href={brand.whatsapp}>WhatsApp ↗</a>
+            <a href={brand.apply}>Book a strategy call ↗</a>
+          </div>
+        </section>
         <footer>
           <span>© {new Date().getFullYear()} Krafted Lab</span>
           <span>Still learning. Still building.</span>
