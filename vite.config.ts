@@ -31,12 +31,5 @@ export default defineConfig({
     target: 'es2022',
     sourcemap: false,
     cssCodeSplit: true,
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          three: ['three'],
-        },
-      },
-    },
   },
 })
